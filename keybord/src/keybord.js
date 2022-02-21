@@ -21,6 +21,9 @@ const Keybord = (props) => {
             <button onClick={minus}>B</button>
             <button onClick={add}>C</button>
             <button onClick={()=> setCount(0)}>Back Space</button>
+            {
+                [<p key='1'>a</p>,<p>b</p>,]
+            }
         </div>
     )
 }
