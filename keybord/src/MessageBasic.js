@@ -1,28 +1,31 @@
 import {useState} from 'react'
+import { getAlphabet } from './helpers'
 const MessageBasic = ()=>{
  
+   
     const [message, setMessage] = useState('')
+
     const handleClicked = (char) => {
-        console.log(`${char} clicked`)
         setMessage(message + char)
     }
-    const renderAlphabet = ()=> {
-      let alp = ['a','b','c']
-      alp.map(char=>{
-        return <p key={char}>{char}</p>
-      })
-      return jsx
+
+    
+    const renderKeyboard = ()=>{
+        
+        let alp = getAlphabet()
+        
+        let jsx = alp.map(char=>{
+            return  <button key={char} onClick={()=> handleClicked(char)}>{char}</button>
+        })
+
+        console.log('jsx var here: about to return it', jsx)
+        return jsx
     }
+
     return (
        <div>
-           <h1>MessageBasic</h1>
            <p>{message}</p>
-           <button onClick={()=> handleClicked('a')}>a</button>
-           <button onClick={()=> handleClicked('b')}>b</button>
-           <button onClick={()=> handleClicked('c')}>c</button>
-           <button onClick={()=> handleClicked('d')}>d</button>
-           <button onClick={()=> handleClicked('e')}>e</button>
-          {renderAlphabet()}
+           {renderKeyboard()}
        </div> 
     )
 }
